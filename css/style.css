@@ -15,10 +15,26 @@ Dark green: #28b485
     --darkGreen: #28b485;
 }
 
-*{
+/* this is the "default" selector for all variables, as the * applies to all */
+/* so therefore by selecting box size: inherit, the box sizing will be inherited */
+/* as border box from the body selector */
+
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+
+/* root font size is always set in html selector */
+/* root font size is set at 62.5 percent of 1rem which  */
+/* is usually 16px, so it is set to 10 px as before to allow for  */
+/* convenient scaling, but without using pixel  */
+html {
+    font-size: 62.5%;
+
 }
 
 /* font properties should be set on body element selector, not universal selector,
@@ -27,10 +43,11 @@ these properties are inherited - font properties are inherited */
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 
 }
 
@@ -50,12 +67,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -72,14 +89,14 @@ body {
     /* backface visiblity is to fix shakiness in animations, set this property in */
     /* parent element of animated elements */
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s; 
     animation-timing-function: ease-out;
@@ -90,9 +107,9 @@ body {
 
 .heading-primary-sub{
     display: block;
-    font-size: 20px;
-    font-weight: 400px;
-    letter-spacing: 17.5px;
+    font-size: 2rem;
+    font-weight: 40rem;
+    letter-spacing: 1.75rem;    
     animation: moveInRight 1s ease-out;
 }
 
@@ -101,11 +118,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -117,11 +134,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     
     100% {
@@ -133,7 +150,7 @@ body {
 @keyframes moveInBotton {
     0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(5rem);
     }
 
     100% {
@@ -146,22 +163,23 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
     transition: all .2s;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: relative;
+    font-size: 1.6rem;
     
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
@@ -174,7 +192,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
