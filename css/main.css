@@ -22,78 +22,8 @@ html {
 /* font properties should be set on body element selector, not universal selector,
 these properties are inherited - font properties are inherited */
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.header {
-  height: 95vh;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-
-.header__logo {
-  height: 3.5rem;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* backface visiblity is to fix shakiness in animations, set this property in */
-  /* parent element of animated elements */
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  margin-bottom: 6rem;
-}
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  -webkit-animation-name: moveInLeft;
-          animation-name: moveInLeft;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-  /* animation-delay: 3s;
-    animation-iteration-count: 3; */
-}
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 40rem;
-  letter-spacing: 1.75rem;
-  -webkit-animation: moveInRight 1s ease-out;
-          animation: moveInRight 1s ease-out;
 }
 
 /* browser animation optimized for opacity and transform only, so stick to those with keyframes */
@@ -190,17 +120,58 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* backface visiblity is to fix shakiness in animations, set this property in */
+  /* parent element of animated elements */
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  /* animation-delay: 3s;
+        animation-iteration-count: 3; */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 40rem;
+  letter-spacing: 1.75rem;
+  -webkit-animation: moveInRight 1s ease-out;
+          animation: moveInRight 1s ease-out;
+}
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
-  -webkit-transition: all .2s;
-  transition: all .2s;
   border-radius: 10rem;
   position: relative;
   font-size: 1.6rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .btn:hover {
@@ -208,6 +179,12 @@ body {
           transform: translateY(-0.3rem);
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+          transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
 .btn:active {
@@ -220,6 +197,10 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
 }
 
 .btn::after {
@@ -236,19 +217,39 @@ body {
   transition: all .4s;
 }
 
-.btn--white::after {
-  background-color: #fff;
-}
-
-.btn:hover::after {
-  -webkit-transform: scaleX(1.4) scaleY(1.6);
-          transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
 .btn--animated {
   -webkit-animation: moveInBotton 1s ease-out .75s;
           animation: moveInBotton 1s ease-out .75s;
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards;
+}
+
+.header {
+  height: 95vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
 }

@@ -1,0 +1,34 @@
+//this file for very low level elements like resets and styles for 
+//html and body element selectors
+
+/* universal reset selector */
+
+/* this is the "default" selector for all variables, as the * applies to all */
+/* so therefore by selecting box size: inherit, the box sizing will be inherited */
+/* as border box from the body selector */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+/* root font size is always set in html selector */
+/* root font size is set at 62.5 percent of 1rem which  */
+/* is usually 16px, so it is set to 10 px as before to allow for  */
+/* convenient scaling, but without using pixel  */
+html {
+    //this defines what 1rem is (10px) in percentage of 16px default rem
+    font-size: 62.5%;
+}
+
+
+/* font properties should be set on body element selector, not universal selector,
+these properties are inherited - font properties are inherited */
+
+body { 
+    box-sizing: border-box;
+}
