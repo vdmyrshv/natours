@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/vdmyrshv/natours/issues"
   },
-  "homepage": "https://github.com/vdmyrshv/natours#readme",
-  "devDependencies": {
-    "node-sass": "^4.13.1"
-  }
+  "homepage": "https://github.com/vdmyrshv/natours#readme"
 }

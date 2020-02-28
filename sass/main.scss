@@ -2,6 +2,10 @@ $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
+
 
 /* universal reset selector */
 
@@ -27,6 +31,7 @@ html {
 
 }
 
+
 /* font properties should be set on body element selector, not universal selector,
 these properties are inherited - font properties are inherited */
 
@@ -35,7 +40,7 @@ body {
     font-weight: 400;
     /* font-size: 16px; */
     line-height: 1.7;
-    color: #777;
+    color: $color-grey-dark;
     padding: 3rem;
     box-sizing: border-box;
 
@@ -45,36 +50,36 @@ body {
     height: 95vh;
     background-image: linear-gradient(
         to right bottom, 
-        rgba(126, 213, 111, 0.801),
-        rgba(40, 180, 133, 0.808)), 
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)), 
     url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-}
+    &__logo {
+        height: 3.5rem;
+    }
 
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 .heading-primary{
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     /* backface visiblity is to fix shakiness in animations, set this property in */
     /* parent element of animated elements */
@@ -82,7 +87,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary--main{
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -164,17 +169,17 @@ body {
 
 .btn:hover {
     transform: translateY(-.3rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
 }
 
 .btn:active {
     transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba($color-black.2);
 }
 
 .btn--white {
-    background-color: #fff;
-    color: #777;
+    background-color: $color-white;
+    color: $color-grey-dark;
 }
 
 .btn::after{
@@ -191,7 +196,7 @@ body {
 }
 
 .btn--white::after {
-    background-color: #fff;
+    background-color: $color-white;
 }
 
 .btn:hover::after {
