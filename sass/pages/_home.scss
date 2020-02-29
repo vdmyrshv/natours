@@ -1,7 +1,36 @@
 .section-about {
     background-color: $color-grey-light-1;
-    padding: 25rem;
+    padding: 25rem 0;
     //giving a negative margin in a border-sizing:border-box context
     //will move the margin without moving the border-box
     margin-top: -20vh;
+}
+
+.section-features {
+    padding: 20rem 0;
+
+    margin-top: -8rem;
+
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)), 
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    transform: skewY(-7deg);
+
+    //direct child selector to undo skew to all direct children of the features seciton
+
+    & > * {
+        transform: skewY(7deg);
+    }
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+    margin-top: -10rem;
 }

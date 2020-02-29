@@ -1,0 +1,194 @@
+.card {
+
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        
+        width: 100%;
+        height: 52rem;
+
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        
+        transition: all 1s ease;
+        backface-visibility: hidden;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &--front {
+          
+        }
+
+        &--back {
+            transform: rotateY(-180deg); 
+            // z-index: 10;
+            &-1 {
+                //linear gradient MUST be background-image, not background color
+                background-image: linear-gradient(to right bottom, $color-secondary-dark, $color-secondary-light);
+            }
+
+            &-2 {
+                //linear gradient MUST be background-image, not background color
+                background-image: linear-gradient(to right bottom, $color-primary-dark, $color-primary-light);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary-light);
+            }
+        }
+    }
+
+
+    //.card:hover .card__side{}
+    //think of it this way, when you hover over the card -> this is what happens to the .card_side
+    //in general when a component is hovered, you want to put the pseudo class on the main component if there are nested ones
+
+    //front needs to be rotated 
+    &:hover &__side {
+        &--front { 
+            transform: rotateY(180deg); 
+            // z-index: 10;
+        }
+
+            //back is already at 180 so it just needs to go back to zero (see nested &--back scss above)
+        &--back { 
+            transform: rotateY(0); 
+            // z-index: 10;
+        }
+    }
+
+    //FRONT SIDE STYLING
+
+    &__picture {
+
+        background-size: cover;
+        background-position: top;
+        height: 23rem;
+        //brand new css prop
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            //for img urls always assume that the url is in relation TO THE COMPILED CSS FILE
+            background-image:
+                linear-gradient(to right bottom, $color-secondary-dark, $color-secondary-light),
+                url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            //for img urls always assume that the url is in relation TO THE COMPILED CSS FILE
+            //background-image: url(../img/nat-5.jpg);
+            background-image:
+                linear-gradient(to right bottom, $color-primary-dark, $color-primary-light),
+                url(../img/nat-6.jpg);
+        }
+
+        &--3 {
+            //for img urls always assume that the url is in relation TO THE COMPILED CSS FILE
+            //background-image: url(../img/nat-5.jpg);
+            background-image:
+                linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary-light),
+                url(../img/nat-7.jpg);
+        }
+    }
+
+
+    &__heading {
+        width: 75%;
+
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        
+        color: $color-white;
+        
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        
+    }
+
+    &__heading-span {
+
+        //this is to treat the span element as two different lines of text
+        box-decoration-break: clone;
+
+        padding: 1rem 1.5rem;
+
+        &--1{
+            background-image: linear-gradient(to right bottom, 
+                rgba($color-secondary-dark, 0.8), 
+                rgba($color-secondary-light, 0.8));
+        }
+        
+        &--2{
+            background-image: linear-gradient(to right bottom, 
+                rgba($color-primary-dark, 0.8), 
+                rgba($color-primary-light, 0.8));
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom, 
+                rgba($color-tertiary-dark, 0.8), 
+                rgba($color-tertiary-light, 0.8));
+        }
+
+    }
+
+    &__details {
+        padding: 3rem;
+        
+        ul{
+            
+            margin: 0 auto;
+            list-style: none;
+            width: 80%;
+
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+    //BACK SIDE STYLING
+
+    &__cta {
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        //the bigger the text the better it looks thinner
+        font-size: 6rem;
+        font-weight: 100;
+        margin-bottom: 8rem;
+    }
+}
+    
