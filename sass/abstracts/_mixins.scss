@@ -1,0 +1,13 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+// mixin for calculating column width
+
+@mixin columnWidth($column-width, $total-columns) {
+    width: calc(#{$column-width} * ((100% - (#{$total-columns} - 1) * #{$gutter-horizontal})/ #{$total-columns}) + (#{$column-width} - 1) * #{$gutter-horizontal});
+}

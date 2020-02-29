@@ -253,3 +253,52 @@ body {
           transform: translate(-50%, -50%);
   text-align: center;
 }
+
+.row {
+  width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row [class^="col-"] {
+  background-color: orangered;
+  float: left;
+}
+
+.row [class^="col-"]:not(:last-child) {
+  margin-right: 6rem;
+}
+
+.row .col-1-of-2 {
+  width: calc(1 * ((100% - (2 - 1) * 6rem)/ 2) + (1 - 1) * 6rem);
+}
+
+.row .col-1-of-3 {
+  width: calc(1 * ((100% - (3 - 1) * 6rem)/ 3) + (1 - 1) * 6rem);
+}
+
+.row .col-2-of-3 {
+  width: calc(2 * ((100% - (3 - 1) * 6rem)/ 3) + (2 - 1) * 6rem);
+}
+
+.row .col-1-of-4 {
+  width: calc(1 * ((100% - (4 - 1) * 6rem)/ 4) + (1 - 1) * 6rem);
+}
+
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - (4 - 1) * 6rem)/ 4) + (2 - 1) * 6rem);
+}
+
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - (4 - 1) * 6rem)/ 4) + (3 - 1) * 6rem);
+}
