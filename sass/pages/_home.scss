@@ -1,0 +1,7 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem;
+    //giving a negative margin in a border-sizing:border-box context
+    //will move the margin without moving the border-box
+    margin-top: -20vh;
+}
