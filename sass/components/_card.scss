@@ -21,9 +21,9 @@
         top: 0;
         left: 0;
 
-        &--front {
-          
-        }
+        // &--front {
+        //   //tba
+        // }
 
         &--back {
             transform: rotateY(-180deg); 
@@ -73,6 +73,7 @@
         //brand new css prop
         background-blend-mode: screen;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-radius: 3px;
 
         &--1 {
             //for img urls always assume that the url is in relation TO THE COMPILED CSS FILE

@@ -1,0 +1,21 @@
+.bg-video {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    overflow: hidden;
+
+    opacity: 0.3;
+
+    &__content {
+        
+        height: 100%;
+        width: 100%;
+        //new property that is similar to background-size: cover; but for videos or other objects
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,82 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .2);
+    border-radius: 3px;
+    padding: 6rem;  
+    padding-left: 9rem;
+
+    position: relative;
+    text-align: center;
+
+    transform: skewX(-15deg);
+
+    font-size: $default-font-size;
+
+
+    //remember to unskew, select all direct child elements of element that skew was done on!!!!
+
+    & > * {
+        transform: skewX(15deg);
+        
+    }
+
+    &__shape {
+
+        //shape outside property MUST be floated and have a height and width
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        //first value is radius, second and third are coords of center, so 50% of height and width are the radius
+        //shape-outside is for curving the floated text, clip path is for the shape itself
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        clip-path: circle(50% at 50% 50%);
+
+        //best way to change spacing of margins on a floated element is with a tranform
+        transform: translateX(-2rem) skewX(15deg);
+        //THIS IS TO HIDE THE BITS OF IMAGE IN THE CORNER
+        overflow: hidden;
+
+
+        
+        
+    }
+
+    &__img {
+       height: 100%;
+       transform: translate(-3.5rem);
+       backface-visibility: hidden;
+       transition: all .2s; 
+
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+
+        color: white;
+        font-size: 1.7rem;  
+        text-transform: uppercase;
+        transition: all .2s;
+        opacity: 0;
+        backface-visibility: hidden;
+
+    }
+
+    &:hover &__caption {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        backface-visibility: hidden;
+    }
+
+    &:hover &__img {
+        filter: blur(2px) brightness(80%);
+        backface-visibility: hidden;
+        
+    }
+}
