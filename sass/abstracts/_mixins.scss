@@ -13,9 +13,9 @@
 }
 
 @mixin marginBottom($margin-size) {
-    margin-bottom: #{$margin-size}rem;
+    margin-bottom: #{$margin-size}rem !important;
 }
 
 @mixin marginTop($margin-size) {
-    margin-top: #{$margin-size}rem;
+    margin-top: #{$margin-size}rem !important;
 }

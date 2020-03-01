@@ -1,4 +1,8 @@
 .btn {
+    
+    //actual button element does not have :link and :visited attributes
+    //you can use the & as a placeholder for an empty space to not have to reuse code;
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -10,6 +14,9 @@
         font-size: 1.6rem;
         
         transition: all .2s;
+
+        border: none;
+        cursor: pointer;
         
     }
 
@@ -23,9 +30,12 @@
         }
     }
 
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-.1rem);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+
     }
 
     &--white {

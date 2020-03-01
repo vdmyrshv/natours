@@ -40,3 +40,32 @@
     padding: 10rem 0;
     position: relative;
 }
+
+.section-book {
+    padding: 10rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+    //linear gradients can be very complex, they can take a degree, a color and a 
+    //%stopping point, if two adjacent colors have the same % stopping point, they will create an instant transition between colors
+
+    background-image: linear-gradient(105deg, 
+        rgba($color-white, .7) 50%,
+        transparent 50%,
+        ), 
+        url(../img/nat-10.jpg);
+
+    //setting background size to cover can be a great effect for tiling images
+    background-size: cover;
+
+    border-radius: 3px;
+    box-shadow: 0 3rem 4rem rgba($color-black, .2);
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}

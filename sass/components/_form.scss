@@ -1,0 +1,113 @@
+.form {
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        //for buttons always add a bit more padding on the sides than on the top
+        //if the padding is the same all around it looks weird
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        
+        background-color: rgba($color-white, .5);
+        color: inherit;
+       
+        border: none;
+        border-radius: 3px;
+        font-family: inherit;
+        border-bottom: 3px solid transparent;
+        
+        width: 90%;
+        display: block;
+        transition: all .5s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+        
+        
+        //its possible to stack pseudoclasses
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        //remember pseudo elements are :: and pseudo classes are :
+        //::placeholder pseudo element is relatively new but is auto prefixed
+        //with the live sass compiler
+        &::placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    //the + selector is an adjacent sibling selector
+    //more on combinators https://www.w3schools.com/css/css_combinators.asp
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        font-weight: 700;
+        cursor: pointer;
+        position: relative;
+        padding-left: 3.5rem;
+    }
+
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -.4rem;
+
+        &::after {
+            height: 1.5rem;
+            width: 1.5rem;
+            content: "";
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: all .5s;
+            
+        }
+
+    }
+
+    //same logic for checkboxes- checked pseudo class works for both
+
+    &__radio-input:checked + &__radio-label &__radio-button::after {
+            opacity: 1;
+    }
+
+}
