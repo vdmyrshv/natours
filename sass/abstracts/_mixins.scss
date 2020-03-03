@@ -19,3 +19,9 @@
 @mixin marginTop($margin-size) {
     margin-top: #{$margin-size}rem !important;
 }
+
+@mixin centerBlock {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

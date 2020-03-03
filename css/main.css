@@ -763,6 +763,103 @@ body {
   opacity: 1;
 }
 
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__checkbox:checked ~ .navigation__background {
+  -webkit-transform: scale(85);
+          transform: scale(85);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: width 1s cubic-bezier(0, 1.69, 0.55, 0.95), opacity 0.7s;
+  transition: width 1s cubic-bezier(0, 1.69, 0.55, 0.95), opacity 0.7s;
+}
+
+.navigation__button {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  z-index: 2000;
+  -webkit-box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+}
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  z-index: 1000;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  -webkit-transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s;
+  transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s;
+}
+
+.navigation__list {
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.navigation__item {
+  margin: 1rem;
+}
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  text-decoration: none;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+  background-size: 220%;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.navigation__link:link span, .navigation__link:visited span {
+  margin-right: 2rem;
+  display: inline-block;
+}
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #55c57a;
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
+}
+
 .header {
   height: 95vh;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
@@ -838,6 +935,70 @@ body {
 
 .row .col-3-of-4 {
   width: calc(3 * ((100% - (4 - 1) * 6rem)/ 4) + (3 - 1) * 6rem);
+}
+
+.footer {
+  background-color: #333;
+  padding: 10rem;
+}
+
+.footer__logo-box {
+  margin-bottom: 8rem;
+  text-align: center;
+}
+
+.footer__logo {
+  width: 15rem;
+}
+
+.footer__navigation {
+  border-top: 2px solid #777;
+  padding-top: 2rem;
+  display: inline-block;
+}
+
+.footer__list {
+  list-style: none;
+}
+
+.footer__list-item {
+  display: inline-block;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  border-bottom: 2px solid #333;
+  border-radius: 2px;
+  font-size: 1.6rem;
+}
+
+.footer__list-item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.footer__link:link, .footer__link:visited {
+  text-decoration: none;
+  font-size: inherit;
+  color: #eee;
+  display: inline-block;
+  text-transform: uppercase;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.footer__link:link:hover, .footer__link:link:active, .footer__link:visited:hover, .footer__link:visited:active {
+  color: #ffb900;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+  -webkit-transform: rotate(5deg) scale(1.2);
+          transform: rotate(5deg) scale(1.2);
+}
+
+.footer__copyright-text {
+  font-size: 1.4rem;
+  padding: 2rem 0;
+  word-spacing: 3px;
+  border-top: 2px solid #777;
+  width: 90%;
+  float: right;
 }
 
 .section-about {

@@ -1,0 +1,73 @@
+.footer {
+
+    background-color: $color-grey-dark-3;
+    padding: 10rem;
+
+    &__logo-box {
+        margin-bottom: 8rem;
+        //remember that any inline element behaves just like text
+        text-align: center;
+    }
+
+    &__logo {
+        width: 15rem;
+    }
+
+    &__navigation {
+        border-top: 2px solid $color-grey-dark;
+        padding-top: 2rem;
+        //changing display to inline block on a block element will resize any borders to the width of the text inside of them
+        display: inline-block;
+    }
+
+    &__list {
+        
+        list-style: none;
+
+        &-item {
+
+            display: inline-block;
+            transition: all .2s;
+            border-bottom: 2px solid $color-grey-dark-3;
+            border-radius: 2px;
+            font-size: 1.6rem;
+            
+            &:not(:last-child){
+              margin-right: 1.5rem;  
+            }
+
+        }
+
+    }
+    
+    &__link {
+        &:link,
+        &:visited{
+            text-decoration: none;
+            font-size: inherit;
+            color: $color-grey-light-2;
+            display: inline-block;
+            text-transform: uppercase;
+            
+            transition: all .2s;
+
+            &:hover,
+            &:active {
+                color: $color-secondary-light;
+                box-shadow: 0 1rem 2rem rgba($color-black, 0.8);
+                transform: rotate(5deg) scale(1.2);
+            }
+            
+        }
+
+    }
+
+    &__copyright-text {
+        font-size: 1.4rem;
+        padding: 2rem 0;
+        word-spacing: 3px;
+        border-top: 2px solid $color-grey-dark;
+        width: 90%;
+        float: right;
+    }
+}

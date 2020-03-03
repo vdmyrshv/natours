@@ -1,0 +1,101 @@
+.navigation {
+
+    &__checkbox{
+        display: none;
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(85);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        width: 100%;
+        opacity: 1;
+        transition: width 1s cubic-bezier(0,1.69,.55,.95), opacity .7s;
+    }
+
+    &__button {
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 2000;
+        box-shadow: 0 0 3rem rgba($color-black, 0.4);
+
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 1000;
+        transition: transform .8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+        
+        opacity: 0;
+        width: 0;
+
+        transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity .5s;
+        
+    }
+
+    &__list {
+        list-style: none;
+        position: absolute;
+        @include centerBlock;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited{
+            display: inline-block;
+            font-size: 3rem;
+            //remember that bigger font looks better with a smaller font weight
+            font-weight: 300;
+            //remember to always add a bit more padding on the sides than on the top
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            color: $color-grey-light-1;
+            text-decoration: none;
+
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(white, 1) 50% );
+            background-size: 220%;
+            transition: all .3s;
+
+            span {
+                margin-right: 2rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(1rem);
+        }
+    }
+}
