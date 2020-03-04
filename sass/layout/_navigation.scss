@@ -4,16 +4,6 @@
         display: none;
     }
 
-    &__checkbox:checked ~ &__background {
-        transform: scale(85);
-    }
-
-    &__checkbox:checked ~ &__nav {
-        width: 100%;
-        opacity: 1;
-        transition: width 1s cubic-bezier(0,1.69,.55,.95), opacity .7s;
-    }
-
     &__button {
         background-color: $color-white;
         height: 7rem;
@@ -25,6 +15,8 @@
         right: 6rem;
         z-index: 2000;
         box-shadow: 0 0 3rem rgba($color-black, 0.4);
+        text-align: center;
+        cursor: pointer;
 
     }
 
@@ -96,6 +88,90 @@
             background-position: 100%;
             color: $color-primary;
             transform: translateX(1rem);
+        }
+    }
+
+    //functionality
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(85);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        width: 100%;
+        opacity: 1;
+        transition: width 1s cubic-bezier(0,1.69,.55,.95), opacity .7s;
+    }
+
+    //icon
+
+    &__icon {
+
+        position: relative;
+        margin-top: 3.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+            
+            
+
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+            
+        }
+
+        &::before {
+            //remember with absolute positioning negative numbers are opposites of positive
+            top: -1rem;
+        }
+
+        &::after {
+            top: 1rem;
+        }
+
+    }
+
+    &__button:hover &__icon {
+        &,
+        &::before,
+        &::after {
+            background-color: orange;
+        }
+
+        &::before {
+            //remember with absolute positioning negative numbers are opposites of positive
+            transform: translateY(-1px);
+        }
+
+        &::after {
+            transform: translateY(1px);
+        }
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        //setting a background color to transparent cane make an element disappear on an action
+        //it's a useful trick
+        background-color: transparent;
+
+        &:before {
+            transform: rotate(135deg);
+            top: 0;
+        }
+
+        &:after {
+            transform: rotate(-135deg);
+            top: 0;
         }
     }
 }
