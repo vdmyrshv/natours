@@ -25,3 +25,55 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+//MEDIA QUERY MANAGER
+
+/* Breakpoints:
+
+0-600px: Phone
+601-900px: Tablet Portrait
+900-1200px: Tablet Landscape
+1200-1800px: Desktop Screen - Where normal styles apply
+1800+ px: Big Screens
+
+*/
+
+//the following way can be used, but it is not the most efficient way
+//because separate mixins would have to be created for separate break points
+
+@mixin respond-phone  { 
+    //the content directive allows for the adding of content into the block
+    @media (max-width: 600px) { @content };
+}
+
+/*
+breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desk
+
+1em = 16px
+
+ORDER: Base + typography > general layout + grid layout > page layout > components
+
+*/
+
+
+//use ems nots rems because rems dont work in all broswers
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content };  //600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content };  //900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content };  //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content };  //1800px
+    }
+
+
+}

@@ -1,12 +1,25 @@
 .row {
-    width: $grid-width;
+    max-width: $grid-width;
     margin: 0 auto;
 
     //selects everything except the last child to have a bottom margin
     //using pseudo class not and last child
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
     }
+
+    @include respond(tab-port) {
+        max-width: 50rem;
+    }
+
+    @include respond(tab-port) {
+        max-width: 90%;
+    }
+    
     
     @include clearfix;
 
@@ -16,6 +29,16 @@
         
         &:not(:last-child){
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+
+        }
+
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 

@@ -191,5 +191,91 @@
         font-weight: 100;
         margin-bottom: 8rem;
     }
+
+    @include respond(tab-port){
+
+        height: auto;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 3px;
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        background-color: $color-white;
+
+    
+        &__side {
+            
+            height: auto;
+    
+            overflow: hidden;
+            
+            position: relative;
+            box-shadow: none;
+
+
+            &--back {
+                transform: rotateY(0); 
+                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+                
+            }
+            // &--back-2 {
+            //     transform: rotateY(0); 
+            // }
+            // &--back-3 {
+            //     transform: rotateY(0); 
+            // }
+        }
+    
+    
+        //.card:hover .card__side{}
+        //think of it this way, when you hover over the card -> this is what happens to the .card_side
+        //in general when a component is hovered, you want to put the pseudo class on the main component if there are nested ones
+    
+        //front needs to be rotated 
+        &:hover &__side {
+            &--front { 
+                transform: rotateY(0); 
+                // z-index: 10;
+            }
+    
+                //back is already at 180 so it just needs to go back to zero (see nested &--back scss above)
+            &--back { 
+                //transform: rotateY(0); 
+                // z-index: 10;
+                background-color: $color-white;
+            }
+        }
+    
+    
+        //BACK SIDE STYLING
+    
+        &__cta {
+    
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+            width: 100%;
+            padding: 3rem;
+            
+        }
+    
+        &__price-box {
+            text-align: center;
+            color: $color-white;
+        }
+    
+        &__price-only {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+    
+        &__price-value {
+            //the bigger the text the better it looks thinner
+            font-size: 6rem;
+            font-weight: 100;
+            margin-bottom: 2rem;
+        }
+
+    }
 }
     

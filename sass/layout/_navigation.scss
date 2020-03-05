@@ -18,6 +18,16 @@
         text-align: center;
         cursor: pointer;
 
+        @include respond(tab-port){
+            top: 4rem;
+            right: 4rem;
+        }
+
+        @include respond(phone){
+            top: 3rem;
+            right: 3rem;
+        }
+
     }
 
     &__background {
@@ -32,6 +42,16 @@
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
         z-index: 1000;
         transition: transform .8s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+        @include respond(tab-port){
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone){
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
 
     &__nav {
@@ -58,6 +78,7 @@
 
     &__item {
         margin: 1rem;
+        transform: translateX(-500px);
     }
 
     &__link {
@@ -76,6 +97,8 @@
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(white, 1) 50% );
             background-size: 220%;
             transition: all .3s;
+
+            //*****
 
             span {
                 margin-right: 2rem;
@@ -101,6 +124,11 @@
         width: 100%;
         opacity: 1;
         transition: width 1s cubic-bezier(0,1.69,.55,.95), opacity .7s;
+    }
+
+    &__checkbox:checked ~ &__nav > &__list > &__item > &__link {
+        transform: translateX(500px);
+        //transition-delay: 0s;
     }
 
     //icon

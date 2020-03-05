@@ -14,11 +14,19 @@
 
     font-size: $default-font-size;
 
+    @include respond(phone){
+        transform: skewX(0);
+    }
+
 
     //remember to unskew, select all direct child elements of element that skew was done on!!!!
 
     & > * {
         transform: skewX(15deg);
+
+        @include respond(phone){
+            transform: skewX(0);
+        }
         
     }
 
@@ -35,8 +43,18 @@
 
         clip-path: circle(50% at 50% 50%);
 
-        //best way to change spacing of margins on a floated element is with a tranform
+        //best way to change spacing of margins on a floated element is with a transform
         transform: translateX(-2rem) skewX(15deg);
+        @include respond(tab-port){
+            margin: 2rem;
+        }
+
+        @include respond(phone){
+            transform: skewX(0);
+            float: none;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
         //THIS IS TO HIDE THE BITS OF IMAGE IN THE CORNER
         overflow: hidden;
 
@@ -50,6 +68,11 @@
        transform: translate(-3.5rem);
        backface-visibility: hidden;
        transition: all .2s; 
+
+       @include respond(phone){
+        
+        display: block;
+    }
 
     }
 
