@@ -4,12 +4,32 @@
         to right bottom, 
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)), 
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+
+    //192 dpi is resolution of apple retina screen
+    //second condition is to make sure that the query is selecting for not phone screens
+    //phone screens are usually retina screens but still dont need to be very large files
+    //combine multiple conditions with media queries with an 'and'
+
+    //COMMA BETWEEN MEDIA QUERIES IS THE SAME AS AN OR STATEMENT instead of writing two diff media queries
+    //rememeber media queries are in em
+
+
+    //it is best practice to add "only screen and..." to media queries
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 73.5em), only screen and (min-width: 125em){
+        background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-secondary-light, 0.8),
+        rgba($color-secondary-dark, 0.8)), 
+        url(../img/hero.jpg);
+    }
 
     @include respond(phone) {
         clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%);

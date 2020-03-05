@@ -49,3 +49,10 @@ body {
         padding: 0;
     }
 }
+
+
+//changing color of highlighted text
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

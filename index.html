@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!-- VVVVV THE FOLLOWING LINE OF CODE IS SUPER IMPORTANT, RESPONSIVE WEB DESIGN WILL NOT WORK WITHOUT IT VVVV -->
+        <!-- if it's not here the browser will zoom out the page to the largest possible version -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
@@ -91,9 +93,35 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
-                            <img src="img/nat-2.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                            <!-- resolution switching goes here, use width descriptors instead of density descriptors
+                                the width descriptor informs broswer of the width of the images
+                            sizes attribute needs to be added to image element, which has the breakpoints that are indicated
+                        and also the % width in vw of the image at that brekpoint (can be calculated by clicking on image, finding width, and
+                    dividing by viewport size
+                    also dont forget to include src at the end in case the user is using an older browser-->
+                            <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
+                                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                alt="Photo 1" 
+                                class="composition__photo composition__photo--p1"
+                                src="img/nat-1-large.jpg"
+                                >
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" 
+                                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                alt="Photo 2" 
+                                class="composition__photo composition__photo--p2"
+                                src="img/nat-2-larg.jpg"
+                                >
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" 
+                                sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                                alt="Photo 3" 
+                                class="composition__photo composition__photo--p3"
+                                src="img/nat-3-larg.jpg"
+                                >
+
+
+                            <!-- <img src="img/nat-1.jpg" alt="Photo 1" class="composition__photo composition__photo--p1"> -->
+                            <!-- <img src="img/nat-2.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                            <img src="img/nat-3.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
                         </div>
                     </div>
                 </div>
@@ -377,7 +405,19 @@
 
         <footer class="footer">
             <div class="footer__logo-box">
-                <img src="img/logo-green-2x.png" alt="Logo" class="footer__logo">
+
+                <picture class="footer_logo">
+                    <!-- art direction involves using a <source> tag with the following attributes
+                    the media tag should have a css media query with a breakpoint at which the art direction happens
+                    you always need at least 1 img and 0 or more sources
+                    always set a default src attribute at the end in case the broswer doesnt support the newer sourceset fn -->
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" 
+                        media="(max-width: 37.5em)">
+                        <!-- density switching uses the following - srcset or sourceset is the set of paths for the images, coupled with
+                        a density descriptor. srcset attribute will allow the browser to choose which one best describes the browser settings
+                        always set a default src attribute at the end in case the broswer doesnt support the newer sourceset fn -->
+                        <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Logo" src="img/logo-green-small-2x.png">
+                </picture>
             </div>
             <div class="row">
                 <div class="col-1-of-2">
